@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 from core.models import Hour
 
 class Command(BaseCommand):
-    help = 'Load wilaya and commune'
+    help = 'Load hours '
 
     def handle(self, *args, **kwargs):
         Hour.objects.all().delete()
@@ -10,6 +10,7 @@ class Command(BaseCommand):
         if not Hour.objects.count():
             for item in time:
                 Hour.objects.create(hour=item)
+        
        
 
         

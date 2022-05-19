@@ -1,10 +1,20 @@
 from django import forms
-from .models import Type_cuisine ,Type_Resturent,MenuItem
-from core.models import Wilaya,Commune,Hour,Day
+from .models import MenuItem
+from core.models import Wilaya,Commune,Hour
 from dynamic_forms import DynamicField,DynamicFormMixin
+from django.utils.translation import gettext_lazy as _
 
 from partner_restaurent import models
 
+days=(	
+  ("Everyday",_("Everyday")),
+	("Saturday",_("Saturday")),
+	("Friday",_("Friday")),
+	("Thursday",_("Thursday")),
+	("Wednesday",_("Wednesday")),
+	("Tuesday",_("Tuesday")),
+	("Monday",_("Monday")),
+	("Sunday",_("Sunday")),)
 
 class PartenerSignup(DynamicFormMixin,forms.Form):
     def commune_choices(form):
@@ -18,15 +28,11 @@ class PartenerSignup(DynamicFormMixin,forms.Form):
     Nom=forms.CharField(max_length=30)
     lat=forms.CharField(max_length=30)
     long=forms.CharField(max_length=30)
-    # type_res=forms.MultipleChoiceField(
-    #     choices=Type_Resturent.objects.values_list('name','name'))
     logo=forms.ImageField(required=True)
     res_owner_nom=forms.CharField(max_length=30)
     res_owner_prenom=forms.CharField(max_length=30)
     mobile=forms.CharField(max_length=10)
     email=forms.CharField(max_length=40)
-    # type_cuisine=forms.MultipleChoiceField(
-    #     choices=Type_cuisine.objects.values_list('name','name'))
     wilaya=forms.ModelChoiceField(
         queryset=Wilaya.objects.all(),
         initial=Wilaya.objects.first())
@@ -35,13 +41,10 @@ class PartenerSignup(DynamicFormMixin,forms.Form):
         queryset=commune_choices,
         initial=initial_commune,
     )
-    # adresse_exacte=forms.CharField()
-    # Page Facebook
-    #Page Instagram
     heur_debut_desponible=forms.ModelChoiceField(queryset=Hour.objects.all())
     heur_fin_desponible=forms.ModelChoiceField(queryset=Hour.objects.all())
-    jour_desponibilite=forms.ModelChoiceField(queryset=Day.objects.all())
-    #photo:logo
+    jour_desponibilite=forms.ChoiceField(choices=days )
+
     
   
     
