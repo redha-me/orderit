@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 import os,django_heroku,dj_database_url
-from decouple import config
+# from decouple import config
 
 
 #this attributes for cart app
@@ -102,18 +102,22 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
+    #  'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'd2k4nl07jiij7j',
         'HOST':"ec2-52-18-116-67.eu-west-1.compute.amazonaws.com",
         'USER':'giniswwvipvwsc',
-        'PORT':'5432',
+        'PORT':5432,
         'PASSWORD':'e29b0e968cc2189b0f4123376aa40d98582fee35953af97a33d32bc1409d260a',
         
     }
     
 }
-SQLALCHEMY_DATABASE_URI='postgres://giniswwvipvwsc:e29b0e968cc2189b0f4123376aa40d98582fee35953af97a33d32bc1409d260a@ec2-52-18-116-67.eu-west-1.compute.amazonaws.com:5432/d2k4nl07jiij7j'
+# SQLALCHEMY_DATABASE_URI='postgres://giniswwvipvwsc:e29b0e968cc2189b0f4123376aa40d98582fee35953af97a33d32bc1409d260a@ec2-52-18-116-67.eu-west-1.compute.amazonaws.com:5432/d2k4nl07jiij7j'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -166,6 +170,7 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR, "static")
 
 ]
+STATIC_ROOT=os.path.join(BASE_DIR, "static")
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 MEDIA_URL='/media/' 
 
