@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from django.utils.translation import gettext_lazy as _
 from pathlib import Path
-import os
+import os,django_heroku,dj_database_url
+from decouple import config
 
 
 
@@ -72,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -149,9 +151,7 @@ LANGUAGES = (
 
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL='users.User'# django user custom model
@@ -175,10 +175,4 @@ EMAIL_FROM='OrderIt@sandboxfea57b453acc4907aa8da943bd0218a1.mailgun.org'
 #locale for translation
 LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
 
-# AUTHENTICATION_BACKENDS = ['path.to.auth.module.EmailBackend']
-
-
-# CITIES_LIGHT_TRANSLATION_LANGUAGES = ['fr']
-# CITIES_LIGHT_INCLUDE_COUNTRIES = ['DZ']
-# CITIES_LIGHT_INCLUDE_CITY_TYPES = ['PPL', 'PPLA', 'PPLA2', 'PPLA3', 'PPLA4', 'PPLC', 'PPLF', 'PPLG', 'PPLL', 'PPLR', 'PPLS', 'STLMT',]
-# DATE_INPUT_FORMATS = ['%d-%m-%Y', '%Y-%m-%d']
+django_heroku.settings(locals())
