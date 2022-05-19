@@ -16,7 +16,8 @@
                 <a href="#" class="hover:underline">{%trans 'Contact'%}</a>
             </li>
         <li class="mt-8 flex ml-3 mb-8"> 
-            <form action="{% url 'set_language' %}" method="post" >{% csrf_token %}
+            <form action="{% url 'set_language' %}" method="post" >
+                {% csrf_token %}
                 {% get_current_language as LANGUAGE_CODE %}                                         
                 <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
                 {% if LANGUAGE_CODE == 'ar' %}
@@ -28,6 +29,7 @@
                         <span class=" bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ">عربي</span>
                     </button>
                 {% endif %}
+                </form>
         </li> 
     </ul>
 
