@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block page_name %}
+   {% blocktrans with arg3=user_obj.username %}{{arg3}}'s Profile{% endblocktrans %} 
+{% endblock page_name %}
+
+{% block content %}
+<div class="mt-16 flex justify-center   ">
+    <div class=" mt-16 bg-mygray mx-3 my-3 p-5  sm:w-600 md:w-700 border-1 border-gray-300 rounded-2xl   ">
+
+
+        <div class="flex items-center mb-4">
+            <div class="flex justify-center w-full">
+                {% if user_obj.avatar %}
+                
+                    <img src="{{user_obj.avatar.url}}" class='w-135 h-135  rounded-full  border-8  object-cover shadow-dishw '> 
+            
+                {% else %}
+                <div class="{{h_and_w|default:'h-20 w-20'}} bg-gray-700 rounded-full text-white flex justify-center items-center overflow-hidden">
+                    <span class="{{text|default:'text-3xl'}}">{{user_obj.username|first}}</span>
+                </div>
+                {% endif %}
+            </div>
+            <div class="  flex justify-start w-full">
+                <div class="font-semibold text-3xl text-sky-400">{{user_obj.username}}</div>
+            </div>
+        </div>
+        <div class='flex justify-center'>
+        {% if user == user_obj %}
+                    
+        <button 
+        hx-get="{% url 'users:accountupdate' %}" 
+        hx-target='#updateprofile'
+        hx-target='click '
+        class="flex flex-row items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg mt-6 text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        hx-swap="innerHTML"
+
+        ><svg class="w-4 h-4 mx-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path></svg>{% trans "Update Account"%}</button>
+       
+        <div id='updateprofile'></div>
+
+        <button 
+        hx-get="{% url 'users:updatepassword' %}" 
+        hx-target='#updatepassword'
+        hx-target='click '
+        class="flex flex-row items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg mt-6 text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        hx-swap="innerHTML"
+
+        ><svg class="w-4 h-4 mx-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path></svg>{% trans "Update password"%}</button>
+       
+        <div id='updatepassword'></div> 
+    {% endif %}
+    
+</div>
+    </div>
+
+</div>
+   
+{% endblock content %}

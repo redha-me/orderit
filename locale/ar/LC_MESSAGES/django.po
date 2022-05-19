@@ -1,0 +1,654 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-17 19:19+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: cart/views.py:22
+msgid "your cart is empty"
+msgstr "سلتك فارغة"
+
+#: delivery_man/views.py:76 delivery_man/views.py:88 delivery_man/views.py:131
+#: delivery_man/views.py:227 delivery_man/views.py:244
+#: partner_restaurent/views.py:30 partner_restaurent/views.py:50
+#: partner_restaurent/views.py:69 partner_restaurent/views.py:149
+#: partner_restaurent/views.py:228 users/views.py:262
+msgid "can't go there"
+msgstr "لا يمكنك الدخول"
+
+#: delivery_man/views.py:97 partner_restaurent/views.py:196 users/views.py:98
+#: users/views.py:108
+msgid "successfully updated"
+msgstr "تم التحديث بنجاح"
+
+#: delivery_man/views.py:135
+msgid "there is no ready order yet"
+msgstr "لا يوجد طلب جاهز حتى الآن"
+
+#: delivery_man/views.py:156
+msgid "your outstanding order is not delivered yet"
+msgstr "لم يتم تسليم طلبك المعلق بعد"
+
+#: delivery_man/views.py:180 users/views.py:163
+msgid "can't do that"
+msgstr "لا تستطيع فعل ذلك"
+
+#: delivery_man/views.py:183
+msgid "your a bit to far"
+msgstr "انت بعيد قليلا"
+
+#: delivery_man/views.py:192
+msgid "this order has been picked up by another driver"
+msgstr "تم اختيار هذا الطلب من قبل سائق آخر"
+
+#: delivery_man/views.py:222
+msgid "there  is no  avaliable deliverys"
+msgstr "لا يوجد توصيلات متاحة"
+
+#: delivery_man/views.py:241 users/views.py:194
+msgid "success"
+msgstr "بنجاح"
+
+#: partner_restaurent/models.py:31
+msgid "Everyday"
+msgstr "كل يوم"
+
+#: partner_restaurent/models.py:32
+msgid "Saturday"
+msgstr "السبت"
+
+#: partner_restaurent/models.py:33
+msgid "Friday"
+msgstr "جمعة"
+
+#: partner_restaurent/models.py:34
+msgid "Thursday"
+msgstr " الخميس"
+
+#: partner_restaurent/models.py:35
+msgid "Wednesday"
+msgstr "الأربعاء"
+
+#: partner_restaurent/models.py:36
+msgid "Tuesday"
+msgstr " الثلاثاء"
+
+#: partner_restaurent/models.py:37
+msgid "Monday"
+msgstr "الاثنين"
+
+#: partner_restaurent/models.py:38
+msgid "Sunday"
+msgstr "الأحد"
+
+#: partner_restaurent/models.py:98
+msgid "Cooking"
+msgstr "تطبخ"
+
+#: partner_restaurent/models.py:99 templates/restaurent/orders.html:41
+msgid "Ready"
+msgstr "جاهز"
+
+#: partner_restaurent/models.py:100
+msgid "On the way"
+msgstr "في الطريق"
+
+#: partner_restaurent/models.py:101
+msgid "Delivered"
+msgstr "سلمت"
+
+#: templates/404.html:23
+msgid "Oops!"
+msgstr "أُووبس!"
+
+#: templates/404.html:23
+msgid "Page not found"
+msgstr "الصفحة غير موجودة"
+
+#: templates/404.html:26
+msgid "The page you’re looking for doesn’t exist."
+msgstr "الصفحة التي تبحث عنها غير موجودة."
+
+#: templates/404.html:31
+msgid "Go home"
+msgstr "انتقل إلى الصفحة الرئيسية"
+
+#: templates/cart/cart.html:3
+msgid "Cart"
+msgstr "السلة"
+
+#: templates/cart/cart.html:14 templates/cart/checkout.html:44
+msgid "Summary"
+msgstr "ملخص"
+
+#: templates/cart/cart.html:17 templates/cart/checkout.html:47
+#: templates/restaurent/orders.html:16
+msgid "Total"
+msgstr "المجموع"
+
+#: templates/cart/cart.html:27 templates/cart/checkout.html:3
+#: templates/cart/checkout.html:11
+msgid "Checkout"
+msgstr "الدفع"
+
+#: templates/cart/checkout.html:18
+msgid "Shipping information"
+msgstr "معلومات الشحن "
+
+#: templates/cart/checkout.html:51
+msgid "Confirm checkout"
+msgstr "تأكيدالدفع"
+
+#: templates/core/store.html:56
+#, python-format
+msgid " Page %(arg1)s of %(arg2)s"
+msgstr "الصفحة%(arg1)s من%(arg2)s"
+
+#: templates/delivery_man/account.html:6
+msgid "delivery man account"
+msgstr "حساب عامل التوصيل"
+
+#: templates/delivery_man/account.html:31
+#, python-format
+msgid "Delivery Mean:%(arg7)s"
+msgstr "%(arg7)s:وسيلةالسائق"
+
+#: templates/delivery_man/account.html:32
+#, python-format
+msgid "Email:%(arg8)s"
+msgstr "%(arg8)s:البريد الإلكتروني"
+
+#: templates/delivery_man/account.html:33
+#, python-format
+msgid "phone number:%(arg9)s"
+msgstr "%(arg9)s: رقم هاتف السائق"
+
+#: templates/delivery_man/accountUpdate.html:6
+msgid "driver account-update"
+msgstr "تعديل حساب السائق"
+
+#: templates/delivery_man/accountUpdate.html:14
+#: templates/restaurent/accountUpdate.html:14
+msgid "profile"
+msgstr "الملف الشخصي"
+
+#: templates/delivery_man/accountUpdate.html:25
+#: templates/delivery_man/signup.html:32
+#: templates/restaurent/accountUpdate.html:25
+#: templates/restaurent/signup.html:31
+msgid "No file chosen, yet."
+msgstr "لم يتم اختيار ملف بعد."
+
+#: templates/delivery_man/accountUpdate.html:32
+#: templates/delivery_man/signup.html:41
+msgid "Name:"
+msgstr "اسم"
+
+#: templates/delivery_man/accountUpdate.html:36
+msgid "FamilyName:"
+msgstr " : لقب"
+
+#: templates/delivery_man/accountUpdate.html:40
+msgid "PlateNumber:"
+msgstr ":عدد الأطباق"
+
+#: templates/delivery_man/accountUpdate.html:46
+#: templates/delivery_man/signup.html:100
+msgid "Email:"
+msgstr "البريد الإلكتروني"
+
+#: templates/delivery_man/accountUpdate.html:50
+#: templates/delivery_man/signup.html:104
+msgid "Mobile:"
+msgstr "رقم هاتف"
+
+#: templates/delivery_man/accountUpdate.html:58
+#: templates/restaurent/accountUpdate.html:65
+msgid "Start hour"
+msgstr "ساعة البدء"
+
+#: templates/delivery_man/accountUpdate.html:62
+#: templates/restaurent/accountUpdate.html:69
+msgid "Finsih hour"
+msgstr "ساعة الانتهاء"
+
+#: templates/delivery_man/accountUpdate.html:66
+#: templates/restaurent/accountUpdate.html:73
+msgid "Work Days"
+msgstr "أيام العمل"
+
+#: templates/delivery_man/accountUpdate.html:75
+#: templates/delivery_man/signup.html:74
+msgid "Wilaya:"
+msgstr ":ولاية"
+
+#: templates/delivery_man/accountUpdate.html:79
+#: templates/delivery_man/signup.html:78
+msgid "Commune:"
+msgstr ":بلدية"
+
+#: templates/delivery_man/accountUpdate.html:84
+msgid "DeliveryMean:"
+msgstr ":وسيلةالسائق"
+
+#: templates/delivery_man/accountUpdate.html:90
+#: templates/delivery_man/signup.html:135
+#: templates/restaurent/accountUpdate.html:94
+#: templates/restaurent/dish_create.html:33
+#: templates/restaurent/dish_update.html:39
+#: templates/restaurent/signup.html:138 templates/users/accountUpdate.html:37
+#: templates/users/update-password.html:42
+msgid "Save"
+msgstr "حفظ"
+
+#: templates/delivery_man/deliverys.html:5
+msgid "driver Deliverys"
+msgstr "الطلبات"
+
+#: templates/delivery_man/deliverys.html:25
+#: templates/delivery_man/deliverys.html:45
+msgid "complet order"
+msgstr "اكمل الطلب"
+
+#: templates/delivery_man/sidebar.html:16
+#: templates/partiels/main_sidebar.html:89 templates/restaurent/sidebar.html:37
+msgid "Account"
+msgstr "الحساب"
+
+#: templates/delivery_man/sidebar.html:27
+#: templates/partiels/main_sidebar.html:82 templates/restaurent/signup.html:122
+#: templates/users/deliverys.html:4
+msgid "Deliverys"
+msgstr "التوصيلات"
+
+#: templates/delivery_man/sidebar.html:39 templates/restaurent/sidebar.html:59
+msgid "Orders"
+msgstr "قائمة الطلبات"
+
+#: templates/delivery_man/signup.html:21 templates/restaurent/signup.html:21
+msgid "Basic information"
+msgstr "المعلومات الأساسية"
+
+#: templates/delivery_man/signup.html:27
+msgid "logo:"
+msgstr "شعار"
+
+#: templates/delivery_man/signup.html:45
+msgid "Family name:"
+msgstr ":لقب"
+
+#: templates/delivery_man/signup.html:58
+#, fuzzy
+#| msgid "PlateNumber:"
+msgid "Plate number:"
+msgstr ":عدد الأطباق"
+
+#: templates/delivery_man/signup.html:69 templates/restaurent/signup.html:80
+msgid "Address"
+msgstr "العنوان"
+
+#: templates/delivery_man/signup.html:94 templates/partiels/footer.html:16
+#: templates/restaurent/signup.html:102
+msgid "Contact"
+msgstr "اتصال"
+
+#: templates/delivery_man/signup.html:111
+#, fuzzy
+#| msgid "Deliverys"
+msgid "Delivery"
+msgstr "التوصيلات"
+
+#: templates/delivery_man/signup.html:115
+#, fuzzy
+#| msgid "DeliveryMean:"
+msgid "Delivery Mean:"
+msgstr ":وسيلةالسائق"
+
+#: templates/delivery_man/signup.html:123 templates/restaurent/signup.html:127
+msgid "Working hours:"
+msgstr ""
+
+#: templates/partiels/footer.html:3
+msgid "All Rights Reserved"
+msgstr "كل الحقوق محفوظة"
+
+#: templates/partiels/footer.html:7
+msgid "About"
+msgstr "حول"
+
+#: templates/partiels/footer.html:10
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصي"
+
+#: templates/partiels/footer.html:13
+msgid "Licensing"
+msgstr " الترخيص"
+
+#: templates/partiels/main_sidebar.html:20
+msgid "Home"
+msgstr "الصفحة الرئيسية"
+
+#: templates/partiels/main_sidebar.html:32
+msgid "restaurent dashbord"
+msgstr " صفحة المطعم"
+
+#: templates/partiels/main_sidebar.html:45
+msgid "Become partner restaurant"
+msgstr "اشترك كصاحب مطعم"
+
+#: templates/partiels/main_sidebar.html:57
+msgid "Delivery man dashbord"
+msgstr "صفحة  عامل التوصيل"
+
+#: templates/partiels/main_sidebar.html:68
+msgid "Become Delivery man"
+msgstr "اشترك كعامل التوصيل"
+
+#: templates/partiels/main_sidebar.html:97
+msgid "Log out"
+msgstr "تسجيل الخروج"
+
+#: templates/partiels/main_sidebar.html:107 templates/users/signup.html:39
+msgid "SignUp"
+msgstr "اشتراك"
+
+#: templates/partiels/main_sidebar.html:113
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: templates/partiels/nav.html:18
+msgid "Location"
+msgstr "المناطق المتوفرة"
+
+#: templates/partiels/search.html:29
+msgid "Search"
+msgstr "ابحث"
+
+#: templates/partiels/search.html:44
+msgid "Search for restaurants"
+msgstr "ابحث عن المطاعم"
+
+#: templates/partiels/search_results.html:22
+msgid "No search results"
+msgstr "لا توجد نتائج بحث"
+
+#: templates/restaurent/account.html:6
+msgid "restaurent account"
+msgstr "حساب المطعم"
+
+#: templates/restaurent/account.html:31
+msgid "restaurent owner"
+msgstr "صاحب مطعم"
+
+#: templates/restaurent/account.html:32
+#: templates/restaurent/accountUpdate.html:49
+#: templates/restaurent/signup.html:108 templates/users/login.html:26
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: templates/restaurent/account.html:33
+msgid "phone number"
+msgstr "رقم الهاتف"
+
+#: templates/restaurent/account.html:36
+msgid "Edit Profile"
+msgstr "تعديل الملف الشخصي"
+
+#: templates/restaurent/accountUpdate.html:5
+msgid "restaurent AccountUpdate"
+msgstr "تعديل حساب المطعم"
+
+#: templates/restaurent/accountUpdate.html:37
+msgid "Name"
+msgstr "اسم"
+
+#: templates/restaurent/accountUpdate.html:53
+#: templates/restaurent/signup.html:112
+msgid "Mobile"
+msgstr "رقم هاتف"
+
+#: templates/restaurent/accountUpdate.html:84
+#: templates/restaurent/signup.html:87
+msgid "Wilaya"
+msgstr "ولاية"
+
+#: templates/restaurent/accountUpdate.html:88
+#: templates/restaurent/signup.html:91
+msgid "Commune"
+msgstr "بلدية"
+
+#: templates/restaurent/dish_create.html:18
+msgid "create Dish"
+msgstr "إنشاء طبق"
+
+#: templates/restaurent/dish_create.html:27
+msgid "name"
+msgstr "اسم"
+
+#: templates/restaurent/dish_create.html:28
+msgid "description"
+msgstr "الوصف"
+
+#: templates/restaurent/dish_create.html:29
+msgid "price"
+msgstr "السعر"
+
+#: templates/restaurent/dish_detail.html:6 templates/restaurent/sidebar.html:47
+msgid "Dishs"
+msgstr "الأطباق"
+
+#: templates/restaurent/dish_detail.html:35
+msgid " Add to Cart"
+msgstr "أضف إلى السلة"
+
+#: templates/restaurent/dish_update.html:24
+msgid "update dish"
+msgstr "تحديث الطبق"
+
+#: templates/restaurent/dishs.html:5
+msgid "Restaurent App"
+msgstr "تطبيق المطعم"
+
+#: templates/restaurent/orders.html:4
+msgid "orders"
+msgstr "طلبات"
+
+#: templates/restaurent/orders.html:12
+msgid "ID"
+msgstr "الرقم"
+
+#: templates/restaurent/orders.html:13
+msgid "Details"
+msgstr "التفاصيل"
+
+#: templates/restaurent/orders.html:14
+msgid "Customer"
+msgstr "العميل"
+
+#: templates/restaurent/orders.html:15
+msgid "Driver"
+msgstr "السائق"
+
+#: templates/restaurent/orders.html:17
+msgid "status"
+msgstr "الحالة"
+
+#: templates/restaurent/orders.html:18
+msgid "action"
+msgstr "التصرف"
+
+#: templates/restaurent/signup.html:26
+msgid "logo"
+msgstr "شعار"
+
+#: templates/restaurent/signup.html:41
+msgid "Facility Name"
+msgstr "اسم المطعم"
+
+#: templates/restaurent/signup.html:53
+msgid "Restaurent Owner FirstName"
+msgstr "اسم صاحب المطعم"
+
+#: templates/restaurent/signup.html:57
+msgid "Restaurent Owner LastName"
+msgstr "لقب صاحب المطعم"
+
+#: templates/users/account.html:4
+#, python-format
+msgid "%(arg3)s's Profile"
+msgstr "%(arg3)s الملف الشخصي "
+
+#: templates/users/account.html:38
+msgid "Update Account"
+msgstr "تحديث الحساب"
+
+#: templates/users/account.html:49
+msgid "Update password"
+msgstr "تحديث كلمة السر"
+
+#: templates/users/accountUpdate.html:24
+msgid " udpate account"
+msgstr "تحديث الحساب"
+
+#: templates/users/login.html:6 templates/users/login.html:42
+msgid "login"
+msgstr "تسجيل الدخول"
+
+#: templates/users/login.html:15
+msgid "Sign In"
+msgstr "سجل"
+
+#: templates/users/login.html:16
+msgid "new to the website?"
+msgstr "جديد على الموقع ؟"
+
+#: templates/users/login.html:29
+msgid "Password"
+msgstr " كلمة السر"
+
+#: templates/users/signup.html:7
+msgid "signup"
+msgstr "اشتراك"
+
+#: templates/users/signup.html:15
+msgid "Sign Up"
+msgstr "اشتراك"
+
+#: templates/users/signup.html:16
+msgid "Already have an account?"
+msgstr "لديك بالفعل حساب؟ "
+
+#: templates/users/signup.html:24
+msgid "Username:"
+msgstr "اسم المستخدم:"
+
+#: templates/users/signup.html:27
+msgid "Email address:"
+msgstr "البريد الإلكتروني:"
+
+#: templates/users/signup.html:30
+msgid "Password:"
+msgstr " :كلمة السر"
+
+#: templates/users/signup.html:33
+msgid "Password confirmation:"
+msgstr ":تأكيد كلمة السر "
+
+#: templates/users/signup.html:35
+msgid "avatar:"
+msgstr ":الصورة"
+
+#: templates/users/status.html:14
+msgid "Order accepted"
+msgstr "تم قبول الطلب"
+
+#: templates/users/status.html:23
+msgid "Food ready"
+msgstr "الطعام جاهز"
+
+#: templates/users/status.html:32
+msgid "driver on the way"
+msgstr "السائق على الطريق "
+
+#: templates/users/status.html:36
+#, python-format
+msgid " driver name:%(arg4)s"
+msgstr "%(arg4)s:اسم السائق"
+
+#: templates/users/status.html:39
+#, python-format
+msgid " driver mean:%(arg5)s"
+msgstr "%(arg5)s:وسيلةالسائق"
+
+#: templates/users/status.html:42
+#, python-format
+msgid " driver number:%(arg6)s"
+msgstr "%(arg6)s: رقم هاتف السائق"
+
+#: templates/users/update-password.html:24
+msgid " update  password"
+msgstr "تحديث كلمة السر"
+
+#: templates/users/update-password.html:32
+msgid "Your password can’t be too similar to your other personal information"
+msgstr ""
+"لا يمكن أن تكون كلمة المرور الخاصة بك مشابهة جدًا لمعلوماتك الشخصية الأخرى"
+
+#: templates/users/update-password.html:33
+msgid "Your password must contain at least 8 characters"
+msgstr "يجب أن تحتوي كلمة المرور الخاصة بك على 8 أحرف على الأقل"
+
+#: templates/users/update-password.html:34
+msgid "Your password can’t be a commonly used password"
+msgstr "لا يمكن أن تكون كلمة المرور الخاصة بك كلمة مرور شائعة الاستخدام"
+
+#: templates/users/update-password.html:35
+msgid "Your password can’t be entirely numeric"
+msgstr "لا يمكن أن تكون كلمة السر الخاصة بك رقمية بالكامل"
+
+#: users/views.py:42
+msgid "verify your email"
+msgstr ""
+
+#: users/views.py:52
+msgid "email verified"
+msgstr ""
+
+#: users/views.py:54
+msgid "email not verified"
+msgstr ""
+
+#: users/views.py:133
+msgid "your last order must be completed"
+msgstr ""
+
+#: users/views.py:139
+msgid "the Address is required"
+msgstr ""
+
+#: users/views.py:140
+msgid "activate location"
+msgstr ""
+
+#: users/views.py:168
+msgid "the meal must be only in one restaurent"
+msgstr ""
+
+#: users/views.py:211
+msgid "there is no deliverys"
+msgstr ""

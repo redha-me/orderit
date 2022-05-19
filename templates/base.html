@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+    {% comment %} <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.2/dist/flowbite.min.css" /> {% endcomment %}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script> 
+    <!-- HTMX -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+    <style>  
+        html, body {height: 100%; margin: 0; padding: 0;}
+
+        #map {width: calc(100% - 350px);height: 900px; position: relative;margin-top:60px;}
+        .panel-body {
+        
+            overflow-y:scroll;
+            display: flex;
+
+            justify-content: center;
+            width: 350px;
+            position: relative;
+            {% comment %} height: calc(100% - 150px); {% endcomment %}
+            padding: 0;
+            height:100%;
+        }
+        .panel-success {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: 0;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            border: none;
+        }
+        .ps{
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: 0;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            border: none;
+        }
+        .panel-heading {
+            background-color: #2979ff !important;
+            color: #fff !important;
+            border: none;
+            padding: 11px 11px 9px 15px;
+            width: 350px;
+            height: 70px;
+        }
+        .list-group-item{
+            margin-top:100px;
+        }
+        .list-group-item img{
+            height: 70px;
+            width:70px;
+        }
+        .panel-heading h4 {margin: 6px 0;}
+        .panel, .list-group-item:last-child, .list-group-item:first-child {
+            border-radius: 0;
+        }
+        .list-group-item {
+            height: 40px;
+            margin-bottom: 0;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+        }
+         @media (max-width: 992px) and (min-width: 520px) {
+            #map {width: 100%; height: 579px;}
+            .panel-success {
+                position: static;
+                
+                height: calc(100% - 400px);
+            }
+            .ps{
+                position: static;
+                
+                height: calc(100% - 400px);
+            }
+            .panel-body {width: 100%; position: static;}
+            
+            #search{width: 400px;}
+        }
+        
+        @media (max-width: 520px) {
+            #map {width: 100%; height: 504px; position: relative;}
+
+            .panel-success {
+                 position: static;
+                
+                height: calc(100% - 350px);
+            }
+            .ps{
+                position: static;
+                
+                height: calc(100% - 350px);
+            }
+            .panel-body {width: 100%; position: static;} 
+            #search{width: 300px;}
+            #results{overflow:scroll}
+
+        }
+        .marker {
+            display: block;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 0;
+            }
+        
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;}
+    </style> 
+    {% block script %}
+    {% endblock %}
+
+    <title>{%block page_name%}OrderIt{%endblock page_name%}</title>
+</head>
+<body class="text-gray-700 font-light  flex flex-col min-h-screen" x-data="{open:false ,scrollfromtop: false}" 
+x-init="window.pageYOffset > 50 ? scrolledFromTop =true : scrolledFromTop =false "
+@scroll.window="window.pageYOffset > 50 ? scrollfromtop=true :  scrollfromtop=false "     >
+    <div>
+        {%include 'partiels/nav.html'%}
+    </div>
+  
+        
+    <div class="grow">
+
+      {% block sidebar %}
+        
+        {% endblock sidebar %}  
+        <div class=" grow  " @click.outside ="open = false">
+            {% block content%}
+                
+
+            {% endblock content%}
+
+        </div>
+    </div>
+     
+
+    <div class='' @click.outside ="open = false">
+       {% include 'partiels/messages.html' %}
+        {%include 'partiels/footer.html'%}
+    </div>
+     
+     <script src="https://unpkg.com/flowbite@1.4.2/dist/flowbite.js"></script>
+
+
+
+  
+   
+
+
+</body>
+</html>

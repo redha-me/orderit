@@ -1,0 +1,46 @@
+{% load i18n %}
+<script>
+    if({{status}}===4){
+        location.reload()
+       }
+</script>
+
+ <h1 class="flex " >  
+      {% if status == 1 or status == 2 or status == 3%}
+      <svg class="w-6 h-6 text-white" fill="True" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      {% else %}
+      <svg class="w-6 h-6 Drak:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      {% endif %} 
+      {% trans "Order accepted"%}
+    </h1><br>
+  
+  <h1 class="flex">
+      {% if status == 2 or status == 3%}
+      <svg class="w-6 h-6 text-white" fill="True" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      {% else %}
+      <svg class="w-6 h-6 Drak:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      {% endif %}
+      {% trans "Food ready"%}
+    </h1><br>
+  
+  <h1 class="flex">
+      {% if  status == 3%}
+      <svg class="w-6 h-6 text-white" fill="True" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      {% else %}
+      <svg class="w-6 h-6 Drak:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      {% endif %}
+      {% trans "driver on the way"%}
+    </h1>
+  {% if status == 3 or status == 4 %}
+            <li class=' text-xl'>
+                {% blocktrans with arg4=order.driver.nom%} driver name:{{arg4}}{% endblocktrans %} 
+            </li>
+            <li class=' text-xl'>
+                {% blocktrans with arg5=order.driver.moyen_de_livraison%} driver mean:{{arg5}}{% endblocktrans %} 
+            </li>
+            <li class=' text-xl'>
+                {% blocktrans with arg6=order.driver.mobile%} driver number:{{arg6}}{% endblocktrans %} 
+            </li>
+        
+            {% endif %}
+</div>

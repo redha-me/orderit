@@ -1,0 +1,38 @@
+{% load i18n %}
+<footer class="p-4 w-full flex flex-col   justify-end mt-auto rounded-sm shadow md:flex border-gray-500 bg-gray-800  md:items-center md:justify-between md:p-6 dark:bg-gray-800 ">
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com" class="hover:underline">OrderIt</a>. {% trans 'All Rights Reserved' %}.
+        </span>
+        <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500  sm:mt-0">
+            <li>
+                <a href="#" class="mr-4 hover:underline md:mr-6 ">{%trans 'About'%}</a>
+            </li>
+            <li>
+                <a href="#" class="mr-4 hover:underline md:mr-6">{% trans 'Privacy Policy' %}</a>
+            </li>
+            <li>
+                <a href="#" class="mr-4 hover:underline md:mr-6">{%trans 'Licensing'%}</a>
+            </li>
+            <li>
+                <a href="#" class="hover:underline">{%trans 'Contact'%}</a>
+            </li>
+        <li class="mt-8 flex ml-3 mb-8"> 
+            <form action="{% url 'set_language' %}" method="post" >{% csrf_token %}
+                {% get_current_language as LANGUAGE_CODE %}                                         
+                <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
+                {% if LANGUAGE_CODE == 'ar' %}
+                    <button type='submit' name='language' value='en' class=" mr-4  md:mr-6">
+                        <span class=" bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ">English</span>
+                    </button>
+                {% else %}
+                    <button type='submit' name='language' value='ar'  class=" mr-4  md:mr-6">
+                        <span class=" bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ">عربي</span>
+                    </button>
+                {% endif %}
+        </li> 
+    </ul>
+
+
+
+       
+    </footer>
+    

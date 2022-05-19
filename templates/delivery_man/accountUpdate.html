@@ -1,0 +1,115 @@
+{%extends "delivery_man/sidebar.html"%}
+{%load widget_tweaks%}
+{% load i18n %}
+
+{%block page_name%}
+{% trans "driver account-update"%}
+{%endblock page_name%}
+
+{%block content%}
+    <div class="flex justify-center mt-24  ">
+        <div class="mt-9  lg:mt-5  mb-8 pb-4    w-full md:w-700 border-2 border-gray-300 bg-mygray  rounded-sm">
+    
+            <div class=" flex justify-center items-center bg-slate-100 w-full py-4 border-b-2 border-gray-300">
+                <span  class=" text-sky-400 font-semibold mb-0 capitalize text-4xl">{% trans "profile"%}</span>
+            </div>
+       
+    <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div  class=" px-4">
+        <div class="flex justify-center py-3">
+            <input type="file" name="avatar" accept="image/*" id="id_avatar" class="hidden invisible">
+            <label id="file_box" for="id_avatar" class=" cursor-pointer text-gray-400 text-sm font-bold leading-tight tracking-normal 
+                        flex justify-center items-center w-full h-24 border-2 border-dashed  border-gray-400 bg-white hover:border-sky-500  hover:text-sky-500 ">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                            <span id="custom-text">{% trans "No file chosen, yet."%}</span>
+                        </label>
+            
+            
+        </div>   
+        <hr class="bg-gray-500 w-2/3 mx-auto   mt-11 ">
+        <div>
+            <label for="id_nom" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Name:"%}</label>
+            {%render_field form.nom class="border-solid border-1  border-gray-400  focus:outline-sky-500 hover:border-sky-300  bg-white   h-8 w-72 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal " %}
+            </div>
+        <div>
+            <label for="id_prenom" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block ">{% trans "FamilyName:"%}</label>
+            {%render_field form.prenom class="border-solid border-1  border-gray-400  focus:outline-sky-500 hover:border-sky-300  bg-white  h-8 w-72 sm:w-96 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal " %}
+            </div>
+            <div>
+                <label for="id_plate_number" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block ">{% trans "PlateNumber:"%}</label>
+                {%render_field form.plate_number class="border-solid border-1  border-gray-400  focus:outline-sky-500 hover:border-sky-300  bg-white  h-8 w-72 sm:w-96 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal " %}
+                </div>
+            <hr class="bg-gray-500 w-2/3 mx-auto   mt-11 ">
+            <div class=" block sm:flex justify-between  ">    
+                <div>
+                    <label for="id_email" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Email:"%}</label>
+                    {%render_field form.email class="border-solid border-1  border-gray-400  focus:outline-sky-500  hover:border-sky-300 bg-white block  h-8 w-72 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal "%}
+                </div>
+                <div>
+                <label for="id_mobile" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Mobile:"%}</label>
+                {%render_field form.mobile class="border-solid border-1  border-gray-400  focus:outline-sky-500  hover:border-sky-300 bg-white block  h-8 w-72 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal " %}
+                </div>
+
+            </div>
+            <hr class="bg-gray-500 w-2/3 mx-auto   mt-11 ">
+            <div class=" block  sm:flex justify-between ">    
+                <div>
+                <label for="id_heur_debut_desponible" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Start hour" %}</label>
+                {%render_field form.heur_debut_desponible  class="border-solid border-1  border-gray-400  focus:outline-sky-500  hover:border-sky-300 bg-white block  h-8 w-40 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal " %}
+                </div>
+                <div>
+                <label for="id_heur_fin_desponible" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Finsih hour" %}</label>
+                {%render_field form.heur_fin_desponible  class="border-solid border-1  border-gray-400  focus:outline-sky-500  hover:border-sky-300 bg-white block  h-8 w-40 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal " %}
+                </div>
+                <div>
+                <label for="id_jour_desponibilite" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans  "Work Days" %}</label>
+                {%render_field form.jour_desponibilite  class="border-solid border-1  border-gray-400  focus:outline-sky-500  hover:border-sky-300 bg-white block  h-8 w-40 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal "%}
+                </div>
+            </div>
+            <hr class="bg-gray-500 w-2/3 mx-auto   mt-11 ">
+            {% comment %} ------------------------------------------------------------------------------------------------ {% endcomment %}
+            <div class=" block sm:flex justify-between ">   
+                <div>   
+                <label for="id_wilaya" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Wilaya:"%}</label>
+                {%render_field form.wilaya class="border-solid border-1  border-gray-400  focus:outline-sky-500  hover:border-sky-300 bg-white block  h-8 w-72 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal " %}
+                </div>
+                <div>
+                <label for="id_commune" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Commune:"%}</label>
+                {%render_field form.commune class="border-solid border-1  border-gray-400  focus:outline-sky-500  hover:border-sky-300 bg-white block  h-8 w-72 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal " %}
+                </div>
+            </div>
+            <div>
+                <label for="id_moyen_de_livraison" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "DeliveryMean:"%}</label>
+                {%render_field form.moyen_de_livraison  class="border-solid border-1  border-gray-400  focus:outline-sky-500  hover:border-sky-300 bg-white block  h-8 w-40 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal "%}
+                </div>
+
+    
+                <div class="pt-4 w-full flex justify-center"> 
+                    <button type="submit" class="mx-2 bg-gray-800 text-white  cursor-pointer my-6  font-semibold rounded-full h-10.5 w-26  hover:bg-sky-500  duration-400" >{% trans "Save"%}</button>
+                    <a href="{% url 'delivery_man:account'  %}" >
+                        
+                        
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    const realFileBtn = document.getElementById("id_avatar");
+    const customBtn = document.getElementById("file_box");
+    const customTxt = document.getElementById("custom-text");
+
+    realFileBtn.addEventListener("change", function() {
+    if (realFileBtn.value) {
+        customTxt.innerHTML = realFileBtn.value.match(
+        /[\/\\]([\w\d\s\.\-\(\)]+)$/
+        )[1];
+    } else {
+        customTxt.innerHTML = "No file chosen, yet.";
+    }
+    });
+
+</script>
+{% endblock content%}

@@ -1,0 +1,51 @@
+{%extends "restaurent/sidebar.html"%}
+{% load i18n %}
+{%block page_name%}
+{% trans "orders"%}
+{%endblock page_name%}
+
+{%block content%}
+<div class=" flex mt-16 justify-center " >
+
+        <table class="font-sans font-medium  w-full mx-1  table-fixed  mt-16 ">
+            <tr  class=" border-y-1 bg-sky-500 text-white  maxmd:hidden">
+                <td id="ID" class="py-1 border-1 border-gray-200   break-words lg:w-1/7     maxmd:block text-center  ">{% trans "ID" %}</td>
+                <td id="Details" class="py-1 border-1 border-gray-200   break-words lg:w-1/7     maxmd:block text-center  ">{% trans "Details" %}</td>
+                <td id="Customer" class="py-1 border-1 border-gray-200   break-words lg:w-1/7     maxmd:block text-center  ">{% trans "Customer" %}</td>
+                <td id="Driver" class="py-1 border-1 border-gray-200   break-words lg:w-1/7     maxmd:block text-center  ">{% trans "Driver" %}</td>
+                <td id="Total"  class="py-1 border-1 border-gray-200   break-words lg:w-1/7     maxmd:block text-center  ">{% trans "Total" %}</td>
+                <td  id="Status" class="py-1 border-1 border-gray-200   break-words lg:w-1/7     maxmd:block text-center  ">{% trans "status" %}</td>
+                <td id="Action" class="py-1 border-1 border-gray-200   break-words lg:w-1/7     maxmd:block text-center  ">{% trans "action" %}</td>
+
+            </tr>
+            {% for order in orders  %} 
+            <tr class="text-center">
+                <td class=" maxmd:before:content-['ID:'] maxmd:before:text-sky-500 p-1 border-1 border-gray-400   break-words lg:w-1/7  maxmd:block ">{{order.id}}</td>
+                <td class="maxmd:before:content-['Details:'] maxmd:before:text-sky-500 p-1 border-1 border-gray-400   break-words lg:w-1/7  maxmd:block  ">
+                <ul class="p-0">
+                        {% for od in order.order_details.all %}
+                        <li>{{ od.meal.name }} : ${{ od.meal.price }} x {{ od.quantity }} = DZD {{ od.sub_total }}</li>
+                        {% endfor %}
+                    </ul> 
+                </td>
+                <td class="  maxmd:before:content-['Customer:'] maxmd:before:text-sky-500 p-1 border-1 border-gray-400   break-words lg:w-1/7  maxmd:block  ">{{order.customer}}</td>
+                <td class="  maxmd:before:content-['Driver:'] maxmd:before:text-sky-500 p-1 border-1 border-gray-400   break-words lg:w-1/7  maxmd:block  ">{{order.driver}}</td>
+                <td class="  maxmd:before:content-['Total:'] maxmd:before:text-sky-500  p-1 border-1 border-gray-400  break-words lg:w-1/7  maxmd:block    ">{{order.total}}</td>
+                <td class="  maxmd:before:content-['status:'] maxmd:before:text-sky-500 p-1 border-1 border-gray-400   break-words lg:w-1/7  maxmd:block  ">{{order.get_status_display}}</td>
+                <td class="text-center  py-1 border-1 border-gray-400   break-words lg:w-1/7  maxmd:block   ">
+
+                    {% if order.status == 1 %}<!-- Cooking-->
+                    <form action="{% url 'restaurent:orders' %}" method="post">
+                      {% csrf_token %}
+                      <input name="id" value="{{ order.id }}" hidden>
+                      <button class=' w-28 px-1 py-1 border-1 border-gray-400   break-words   cursor-pointer text-black bg-mygray     font-semibold rounded-full   hover:bg-sky-1/70 focus:bg-orange-300  duration-400'>{% trans "Ready"%}</button>
+                    </form>
+                    {%endif%}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+</div>
+
+{% endblock content%}

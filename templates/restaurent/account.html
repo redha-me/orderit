@@ -1,0 +1,44 @@
+{%extends "restaurent/sidebar.html"%}
+{%load widget_tweaks%}
+{% load i18n %}
+
+{%block page_name%}
+{% trans "restaurent account" %} 
+{%endblock page_name%}
+
+{%block content%}
+
+<div class="mt-16 flex justify-center   ">
+            <div class=" mt-16 bg-mygray mx-3 my-3 p-5  sm:w-600 md:w-700 border-1 border-gray-300 rounded-2xl   ">
+
+
+                <div class="flex items-center mb-4">
+                    <div class="flex justify-center w-full">
+                        {% if restaurent.logo %}
+                        
+                            <img src="{{restaurent.logo.url}}" class='w-135 h-135  rounded-full  border-8  object-cover shadow-dishw '> 
+                    
+                        {% else %}
+                        <div class="{{h_and_w|default:'h-20 w-20'}} bg-gray-700 rounded-full text-white flex justify-center items-center overflow-hidden">
+                            <span class="{{text|default:'text-3xl'}}">{{restaurent.name|first}}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class=" px-7 flex justify-center w-full">
+                        <div class="font-semibold text-3xl text-sky-400">{{restaurent.name}}</div>
+                    </div>
+                </div>
+                <div class="font-normal text-2xl py-2 border-b-1 text-gray-400  border-gray-300 break-words">{% trans "restaurent owner" %}:{{restaurent.restaurent_owner.nom}} {{restaurent.restaurent_owner.prenom}}</div>
+                <div class="font-normal text-2xl py-2 border-b-1 text-gray-400  border-gray-300 break-words">{% trans "Email" %}:{{restaurent.email}}</div>
+                <div class="font-normal text-2xl py-2 border-b-1 text-gray-400  border-gray-300 break-words"> {% trans "phone number" %}:{{restaurent.mobile}}</div> 
+
+
+                <a href="{% url 'restaurent:account-update' %}" class=""> <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg mt-6 text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">{%trans "Edit Profile"%}</button></a> 
+            
+                    
+            </div>
+
+</div>
+
+
+{% endblock %}

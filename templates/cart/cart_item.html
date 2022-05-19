@@ -1,0 +1,51 @@
+{% if item %}   
+    <div class="flex  grow flex-col md:flex-row bg-gray-100 rounded-xl p-2 mb-2 " id="cart-item-{{ item.Dish.id }}">
+        <div>
+        <a href="#" class="maxmd:w-full  maxmd:flex maxmd:justify-center">
+            <img class="hover:shadow-lg rounded-xl w-52 h-36 object-cover" src="{{ item.Dish.photo.url }}">
+        </a>
+        </div>
+   
+
+        <div class="grow  px-5  ">
+            <div class="flex justify-between mb-6">
+                <div class=" text-base font-medium">{{ item.Dish.name }}</div>
+    
+                <span class="text-gray-400  text-base font-medium">${{ item.total_price }}</span>
+            </div>
+
+
+        <div class="flex items-center space-x-4 ">
+            <button>
+            <a 
+            class="p-3 bg-gray-200"
+                hx-post="{% url 'cart:update_cart' item.Dish.id 'decrement' %}"
+                hx-target="#cart-item-{{ item.Dish.id }}"
+                hx-swap="outerHTML"
+            >
+                -
+            </a>
+        </button>
+            <span>{{ item.quantity }}</span>
+            <button>
+            <a 
+            class="p-3 bg-gray-200"
+                hx-post="{% url 'cart:update_cart' item.Dish.id 'increment' %}"
+                hx-target="#cart-item-{{ item.Dish.id }}"
+                hx-swap="outerHTML"
+            >
+                +
+            </a>
+        </button>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+
+
+
+
+
+    

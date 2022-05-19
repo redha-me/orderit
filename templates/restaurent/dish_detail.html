@@ -1,0 +1,47 @@
+
+{%extends "base.html"%}
+{% load i18n %}
+
+{%block page_name%}
+{% trans "Dishs"%}
+{%endblock page_name%}
+
+{%block content%}
+<div class="mt-16 flex justify-center ">
+    <div class=" flex flex-wrap justify-center py-4   ">
+
+                {% for  dish in menuitem  %}
+                    {% if restaurent.pk == dish.restaurent.pk %}
+
+                        <div
+                        class=" relative bg-white-100 shadow-resbox hover:scale-102 hover:shadow-dishw duration-300 flex flex-col justify-center content-end h-336 mx-2 my-3 w-72  minxss:w-400  rounded-lg">
+                            
+                                <span class=" absolute top-4 right-0 bg-sky-500 rounded-l-md 
+                                    rounded-br-lg  text-white pl-3 pr-6">
+                                    <span class="font-sans font-medium text-lg tracking-wide ">DZD  {{dish.price}}</span>
+                                </span>
+                                <img  class="w-full h-240 rounded-lg object-cover" src="{{dish.photo.url}}">
+                                <div class="flex justify-between w-full pl-2 flex-wrap ">
+                                    <span class="font-sans font-medium text-xl text-gray-500 ove">{{dish.name|truncatechars:50}}</span>
+
+                                </div>
+                                <div class="w-full px-2 font-normal text-gray-400 mb-1">
+                                    <span>{{dish.description|truncatechars:47}}</span>
+                                </div>
+                               {% if user.email_confirmed %}
+                                <a hx-get="{% url 'cart:add_to_cart' dish.id %}" hx-target='#menu-cart-button' hx-swap="outerHTML"
+                                class="w-full  ">
+                                <button class="  flex  justify-center items-center bg-myblack text-white  cursor-pointer   font-semibold rounded-b-lg h-10 w-full  hover:bg-sky-500  duration-300">
+                                   {% trans " Add to Cart"%}
+                                
+                                </button>
+                                </a>
+                                {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                
+
+    </div>
+</div>
+{%endblock content%}

@@ -1,0 +1,78 @@
+{%extends "base.html"%}
+{% load i18n %}
+{% load static %}
+{%block page_name%}
+OrderIt
+{%endblock page_name%}
+
+{%block content%}
+
+<div class="container mx-auto pb-10 mt-24   " >
+      <div class=" rounded-xl w-full bg-gray-800  mt-32 h-56 lg:h-420  2xl:bg-cover bg-no-repeat bg-center flex justify-center items-center " 
+      style="background-image:linear-gradient(180deg, rgba(255,255,255,0) 0, rgba(0, 0, 0, 0.48) 0),url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80');">
+          <img src={% static 'map_img/writing-size.png' %}  class="relative">
+      </div>
+
+
+ 
+      <div class="flex flex-col justify-center items-center">
+            <div class="flex justify-center flex-wrap py-6 ">
+                {% for  restaurent in restaurents %}
+                   
+                  <div class=" bg-white relative  shadow-resbox hover:shadow-dishw border-1 hover:scale-105 duration-300 flex flex-wrap    m-4 h-308 w-72  minxss:w-400  rounded-lg">  
+                      <a  href="{%url 'restaurent:detail' restaurent.pk%}" class="no-underline text-gray-600  w-full hover:text-sky-400 duration-300">  
+                        <div class="">
+                            <img src={{restaurent.logo.url}} class="  mx-auto w-full h-240 rounded-lg object-contain border-b-2 border-gray-200  ">
+                        </div>
+                        <div  class="py-2  px-2" >
+                      
+                        <div class="font-sans font-medium text-xl    block"> {{restaurent.name}}</div>
+                        <span class="font-sans font-normal text-gray-400 text-base"> {{restaurent.wilaya}} ,{{restaurent.commune}}</span>
+                        
+                      
+                        </div>
+                      </a>  
+                  </div>
+       
+                {% endfor %}
+                    
+            </div>
+            <div class="flex p-2 items-center   align-bottom  w-80 sm:w-640 lg:w-960 xl:w-1280 2xl:w-1600 ">
+              {% if page_obj.paginator.num_pages > 1 %}
+
+              <div>
+                
+                {%if page_obj.has_previous %}
+                <a href="?page={{page_obj.previous_page_number}}"class="no-underline flex font-medium ">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                </a>
+                {% else %}
+                  <svg class="w-6 h-6 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                {%endif%}
+              </div>
+            
+              <span class="text-lg font-medium px-2">
+                
+               {% blocktrans with arg1=page_obj.number arg2=page_obj.paginator.num_pages %} Page {{arg1}} of {{arg2}}{% endblocktrans %}</span>
+             
+               <div>
+                {%if page_obj.has_next%}
+                <a href="?page={{page_obj.next_page_number}}" class="no-underline flex font-medium ">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+                {% else %}
+                <svg class="w-6 h-6 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                {%endif%}
+              </div>
+              {% endif %}
+        </div> 
+      </div>
+                
+
+
+
+
+              
+
+</div> 
+{%endblock content%}

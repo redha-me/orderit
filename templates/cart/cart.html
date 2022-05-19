@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Cart"%}{% endblock %}
+
+{% block content %}
+<div class="flex  flex-col lg:flex-row px-3   mt-16">
+    <div class="grow  pb-3 px-2 rounded-xl mt-3  bg-white">
+        {% for item in cart %}
+           {% include 'cart/cart_item.html'  %}
+        {% endfor %}
+    </div>
+
+    <div class="w-full h-fit  lg:w-75 p-6 bg-gray-100 rounded-xl mx-auto md:mx-0 mt-0 lg:mt-3  ">
+        <h2 class="uppercase  text-base mb-5">{% trans "Summary"%}</h2>
+
+        <div class="mb-6 flex justify-between">
+            <span class="font-semibold">{% trans "Total"%}</span>
+            <span 
+            class="text-gray-400 text-base font-medium"
+            hx-get="{% url 'cart:hx_cart_total' %}"
+            hx-trigger="update-menu-cart from:body"
+            hx-swap="innerHTML">
+            {% include 'cart/cart_total.html' %}
+            </span>
+        </div>
+
+        <a href="{% url 'cart:checkout' %}"  class="inline-block px-8 py-4 rounded-xl bg-purple-500 hover:bg-purple-700 text-white">{% trans "Checkout"%}</a>
+    </div>
+</div>
+{% endblock %}
+
+
+
+    
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+

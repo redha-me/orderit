@@ -1,0 +1,177 @@
+{% extends 'base.html' %} 
+{% load i18n %}
+{%load widget_tweaks%}
+
+{% block content %}
+<div class="flex justify-center mt-16 ">
+    <form method="post" action="{%url 'restaurent:signup'%}" enctype="multipart/form-data" >
+        {%csrf_token%} 
+
+      
+        <div class="  pb-4  sm:w-640 lg:w-960 xl:w-1280 2xl:w-1600    rounded-sm flex  flex-wrap justify-center xl:justify-around   ">
+
+              {% comment %} --------------------------------------------------------------------------------------- {% endcomment %}
+
+                <div class="  lg:w-480   xl:w-640 2xl:w-800 px-2 py-3"> 
+
+                    
+                    <div class="flex  items-center font-semibold text-2xl mt-6">
+                        <span class=" mx-2 text-white bg-sky-300 rounded-full w-12 h-12 flex justify-center items-center">1</span>
+                        <span class="text-sky-300">{% trans "Basic information"%}</span>
+                    </div>
+
+
+
+                    <label for="" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "logo"%}:</label>  
+                    <input type="file" name="logo" accept="image/*" required="" id="id_logo" class="hidden">
+                    <label id="file_box" for="id_logo" class=" cursor-pointer text-gray-400 text-sm font-bold leading-tight tracking-normal 
+                    flex justify-center items-center w-full h-24 border-2 border-dashed  border-gray-400 bg-white hover:border-sky-500  hover:text-sky-500 ">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                        <span id="custom-text">{% trans "No file chosen, yet."%}</span>
+                    </label>
+                        
+                     
+                    
+                  
+
+
+
+
+                    <label for="id_Nom" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block ">{% trans "Facility Name"%}:</label>  
+                    {% render_field form.Nom class="border-solid border-1  border-gray-400  focus:outline-sky-500 hover:border-sky-300  bg-white   h-8 w-72 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal "%}
+{% comment %} ------------------------------------------------------------------------------------------------ {% endcomment %}            
+                <hr class="bg-gray-500 w-2/3 mx-auto   mt-11 ">
+{% comment %} ------------------------------------------------------------------------------------------------ {% endcomment %}
+                   
+                  
+
+                    <div  class="flex justify-between flex-wrap xl:flex-nowrap">
+                        <div>
+                        <label for="id_res_owner_nom" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Restaurent Owner FirstName"%}:</label>  
+                        {% render_field form.res_owner_nom class="border-solid border-1  border-gray-400  focus:outline-sky-500 hover:border-sky-300  bg-white block  h-8 w-72 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal " %}
+                        </div>
+                        <div>
+                        <label for="id_res_owner_prenom" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Restaurent Owner LastName"%}:</label> 
+                        {% render_field form.res_owner_prenom class="border-solid border-1  border-gray-400  focus:outline-sky-500 hover:border-sky-300  bg-white block  h-8 w-72 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal "%}
+                        </div>
+                    </div>
+
+
+                
+ 
+              </div>
+
+
+
+
+
+   
+
+              {% comment %} --------------------------------------------------------------------------------------- {% endcomment %}
+
+            <div  class="  lg:w-480 xl:w-640 2xl:w-800 px-2  py-3 ">
+
+                <div class="flex  items-center font-semibold text-2xl mt-6">
+                    <span class=" mx-2 text-white bg-sky-300 rounded-full w-12 h-12 flex justify-center items-center">2</span>
+                    <span class="text-sky-300">{% trans "Address"%}</span>
+                </div>
+
+
+
+             <div  class="flex justify-between flex-wrap xl:flex-nowrap">
+                <div>
+                    <label for="id_wilaya" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Wilaya"%}:</label>
+                    {% render_field form.wilaya   hx-post='commune/' hx-target='#id_commune'  class="border-solid border-1  border-gray-400  focus:outline-sky-500 hover:border-sky-300 bg-white block  h-8 w-72 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal " %}
+                </div>
+                <div>
+                <label for="id_commune" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Commune"%}:</label>
+                {% render_field form.commune  class="border-solid border-1  border-gray-400  focus:outline-sky-500 hover:border-sky-300  bg-white block  h-8 w-72 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal "  %}
+                </div>
+             </div>
+
+
+                {% render_field form.lat class='hidden'  value=' ' %}
+                {% render_field form.long class='hidden' value=' ' %}
+                
+                <div class="flex  items-center font-semibold text-2xl mt-6">
+                    <span class=" mx-2 text-white bg-sky-300 rounded-full w-12 h-12 flex justify-center items-center">3</span>
+                    <span class="text-sky-300">{% trans "Contact"%}</span>
+                </div>
+ 
+
+                <div class="flex justify-between flex-wrap xl:flex-nowrap">
+                    <div class="">
+                        <label for="id_email" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Email"%}:</label>   
+                        {% render_field form.email  class="border-solid border-1  border-gray-400  focus:outline-sky-500  hover:border-sky-300 bg-white block  h-8 w-72 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal " %}
+                    </div>
+                    <div>
+                        <label for="id_mobile" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Mobile"%}:</label>   
+                        {% render_field form.mobile  class="border-solid border-1  border-gray-400  focus:outline-sky-500 hover:border-sky-300  bg-white block  h-8 w-72 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal "%}
+                    </div>
+
+                </div>
+
+
+                
+                <div class="flex  items-center font-semibold text-2xl mt-6">
+                    <span class=" mx-2 text-white bg-sky-300 rounded-full w-12 h-12 flex justify-center items-center">4</span>
+                    <span class="text-sky-300">{% trans "Deliverys"%}</span>
+                </div>
+
+
+
+                    <label for="id_jour_desponibilite" class="pt-4 text-gray-400 text-sm font-bold leading-tight tracking-normal mb-2 block">{% trans "Working hours:"%}                    </label>
+                    <div  class="flex  flex-wrap justify-around xl:flex-nowrap"  >
+                     
+                        {% render_field form.jour_desponibilite class="border-solid border-1  border-gray-400  focus:outline-sky-500 hover:border-sky-300 bg-white block  h-8 w-32 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal "%}
+                        {% render_field form.heur_debut_desponible  class="border-solid border-1  border-gray-400  focus:outline-sky-500 hover:border-sky-300 bg-white block  h-8 w-32 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal "%}
+                        {% render_field form.heur_fin_desponible  class="border-solid border-1  border-gray-400  focus:outline-sky-500 hover:border-sky-300 bg-white block  h-8 w-32 pl-3 pr-3 sm:text-sm rounded-lg my-2 font-normal "%}
+                    </div>
+
+            </div> 
+
+             <div class=" w-full flex justify-center">    
+            <input type="submit" value="{% trans "Save"%}" class=" bg-gray-800 text-white  cursor-pointer my-6  font-semibold rounded-full h-10.5 w-26  hover:bg-sky-500  duration-400">
+        </div>
+          
+ 
+</div>
+      
+  </form>
+</div> 
+<script>
+    function handleSucGeo(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        document.getElementById('id_lat').value=latitude;
+        document.getElementById('id_long').value=longitude;       
+    }
+    function handleErrGeo() {
+        document.getElementById('id_address').value='nn';
+
+    }
+        navigator.geolocation.getCurrentPosition(handleSucGeo,handleErrGeo);
+    
+    const realFileBtn = document.getElementById("id_logo");
+    const customBtn = document.getElementById("file_box");
+    const customTxt = document.getElementById("custom-text");
+
+    realFileBtn.addEventListener("change", function() {
+    if (realFileBtn.value) {
+        customTxt.innerHTML = realFileBtn.value.match(
+        /[\/\\]([\w\d\s\.\-\(\)]+)$/
+        )[1];
+    } else {
+        customTxt.innerHTML = "No file chosen, yet.";
+    }
+    });
+
+</script>
+
+{% endblock %}
+
+   
+
+
+
+    

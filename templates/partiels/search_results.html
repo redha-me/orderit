@@ -1,0 +1,24 @@
+{% load i18n %}
+{% if results %}
+    {% csrf_token %}
+    <div class="absolute  text-gray-500 w-full h-screen">
+
+    <ul class="bg-white border border-gray-100 w-full mt-2 ">
+    {% for restaurent in results %} <a  
+                style="cursor: pointer;"
+                href="{% url 'restaurent:detail' restaurent.pk %}">
+    <li class="pl-8 pr-2 py-1 border-b-2 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900">
+
+            
+           {{ restaurent.name }}</li></a> 
+        
+    {% endfor %}
+    </ul>
+</div>
+
+{% else %}
+<div class="absolute  text-gray-500 w-full">
+
+    <div class="bg-white pl-8 pr-2 py-1 border-b-2 mt-3 border-gray-100 relative cursor-pointer hover:bg-yellow-50 hover:text-gray-900">{% trans "No search results"%}</div>
+</div>
+{% endif %}

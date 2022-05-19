@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{%load widget_tweaks i18n%}
+{% block title %}{% trans "Checkout"%}{% endblock %}
+
+
+
+{% block content %}
+
+<div class="mt-16 flex justify-center  flex-col">
+    <div class="w-full my-4  flex justify-center h-fit text-gray-400 ">
+            <span class="font-semibold  text-3xl">{% trans "Checkout"%}</span>
+    </div>
+
+
+    <div class="flex   flex-col lg:flex-row px-2   bg-white ">
+        <div class="grow  bg-gray-100 mr-0 lg:mr-6   rounded-xl">
+            <div class=" p-6  ">
+                <h2 class=" uppercase text-lg font-normal">{% trans "Shipping information"%}</h2>
+
+
+                <div class="mb-4">
+                    <div class='flex justify-center'>
+                        <form  method="POST" action="{% url 'users:add' %}" >
+                        {% csrf_token %}
+                        {% if lang == 'en' %}
+                    {%render_field form.wilaya placeholder='wilaya' class=' w-full p-5 rounded-xl'  hx-post='/en/commune/' hx-target='#id_commune' type='text'%}
+                    {% else %}
+                    {%render_field form.wilaya placeholder='wilaya' class=' w-full p-5 rounded-xl'  hx-post='/ar/commune/' hx-target='#id_commune' type='text'%}
+                    {% endif %}
+                    {%render_field form.commune placeholder='wilaya' class=' w-full p-5 rounded-xl' type='text'%}
+                    <div class='relative'>
+                        {%render_field form.address  class='hidden' value=' ' %}
+                    </div>
+                    </div>
+                   </div>
+                </div>
+            </div>
+
+           
+        </div>
+    </div> 
+
+    <div class="w-full h-fit  lg:w-75 p-6 bg-gray-100 rounded-xl mx-auto md:mx-0 mt-3  lg:mt-0  ">
+        <h2 class="uppercase  text-base mb-5">{% trans "Summary"%}</h2>
+
+        <div class="mb-6 flex justify-between">
+            <span class="font-semibold">{% trans "Total"%}</span>
+            <span class="text-gray-400 text-base font-medium">DZD {{ cart.get_total_cost }} </span>
+        </div>
+
+      <button class="inline-block px-8 py-4 rounded-xl bg-purple-500 hover:bg-purple-700 text-white">{% trans "Confirm checkout"%}</button>
+    </div>
+</div>
+</form>
+<script>
+    
+    function handleSucGeo(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        document.getElementById('id_address').value=[longitude,latitude];
+       
+        console.log(document.getElementById('id_address').value)
+       
+    }
+    function handleErrGeo() {
+        document.getElementById('id_address').value='nn';
+
+    }
+        navigator.geolocation.getCurrentPosition(handleSucGeo,handleErrGeo);
+    
+    
+</script>
+{% endblock %}
+
+
+
