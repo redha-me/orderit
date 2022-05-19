@@ -16,7 +16,6 @@ import os,django_heroku,dj_database_url
 from decouple import config
 
 
-
 #this attributes for cart app
 SESSION_COOKIE_AGE=86400
 CART_SESSION_ID='cart'
@@ -108,6 +107,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+DATABASES['default'] = dj_database_url.config()
 
 
 # Password validation
