@@ -109,11 +109,11 @@ DATABASES = {
         'USER':'giniswwvipvwsc',
         'PORT':'5432',
         'PASSWORD':'e29b0e968cc2189b0f4123376aa40d98582fee35953af97a33d32bc1409d260a',
+        
     }
     
 }
-DATABASES['default'] = dj_database_url.config()
-
+SQLALCHEMY_DATABASE_URI='postgres://giniswwvipvwsc:e29b0e968cc2189b0f4123376aa40d98582fee35953af97a33d32bc1409d260a@ec2-52-18-116-67.eu-west-1.compute.amazonaws.com:5432/d2k4nl07jiij7j'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
