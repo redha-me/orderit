@@ -23,6 +23,7 @@ class Command(BaseCommand):
         all_users = user_models.User.objects.all()
         type_restaurent = partner_models.Type_Resturent.objects.all()
         heur_desponible= core_models.Hour.objects.all()
+        jour_desponibilite= core_models.Day.objects.all()
         wilaya=core_models.Wilaya.objects.all()
         commune=core_models.Commune.objects.all()
         seeder.add_entity(

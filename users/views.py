@@ -1,6 +1,6 @@
 from django.utils import translation
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render,redirect,reverse
 from django.contrib.auth import authenticate, login, logout
@@ -262,4 +262,16 @@ def update_delivery_menu(request):
     else:
         messages.error(request,_("can't go there"))
         return redirect('core:home')
-        
+
+@csrf_exempt
+@login_required(login_url='/users/login/')
+def update_driver_postision(request):
+    customer = request.user
+    order_status=Order.objects.filter(customer=customer).last()
+    if request.method == 'POST':
+        if order_status.driver:
+            driver_address=[float(order_status.driver.long),float(order_status.driver.lat)]
+        else:
+            driver_address=0
+        return JsonResponse({'driver_address':driver_address})
+   

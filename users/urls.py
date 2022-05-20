@@ -13,5 +13,6 @@ urlpatterns=[
     path('account/<int:pk>/',views.Account.as_view(),name="account"),
     path('accountupdate/',views.AccountUpdate.as_view(),name="accountupdate"),
     path('UpdatePassword/',views.UpdatePassword.as_view(),name='updatepassword'),
+    path('driverPosition/',views.update_driver_postision,name='updatedv'),
     # path('order/latest_status/', views.get_latest_order_status),
 ]

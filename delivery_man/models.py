@@ -2,18 +2,17 @@ import os
 from django.db import models
 from django.dispatch import receiver
 from users.models import User
-from django.utils.translation import gettext_lazy as _
 
 
 days=(	
-  ("Everyday",_("Everyday")),
-	("Saturday",_("Saturday")),
-	("Friday",_("Friday")),
-	("Thursday",_("Thursday")),
-	("Wednesday",_("Wednesday")),
-	("Tuesday",_("Tuesday")),
-	("Monday",_("Monday")),
-	("Sunday",_("Sunday")),)
+  ("Everyday","Everyday"),
+	("Saturday","Saturday"),
+	("Friday","Friday"),
+	("Thursday","Thursday"),
+	("Wednesday","Wednesday"),
+	("Tuesday","Tuesday"),
+	("Monday","Monday"),
+	("Sunday","Sunday"),)
 
 class DeliveryMan(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE,null=True)

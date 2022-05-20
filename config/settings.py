@@ -180,7 +180,7 @@ EMAIL_PORT='587'
 EMAIL_HOST='smtp.mailgun.org'
 EMAIL_HOST_USER=os.environ.get('MAILGUN_USERNAME')
 EMAIL_HOST_PASSWORD=os.environ.get('MAILGUN_PASSWORD')
-EMAIL_FROM='OrderIt@sandboxfea57b453acc4907aa8da943bd0218a1.mailgun.org'
+EMAIL_FROM='orderit@sandboxfea57b453acc4907aa8da943bd0218a1.mailgun.org'
 
 #locale for translation
 LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)

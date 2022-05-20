@@ -1,19 +1,13 @@
 from django import forms
 from . import models
-from core.models import Hour,Wilaya,Commune
+from core.models import Day,Hour,Wilaya,Commune
 from dynamic_forms import DynamicField,DynamicFormMixin
-from django.utils.translation import gettext_lazy as _
 
 
-days=(	
-  ("Everyday",_("Everyday")),
-	("Saturday",_("Saturday")),
-	("Friday",_("Friday")),
-	("Thursday",_("Thursday")),
-	("Wednesday",_("Wednesday")),
-	("Tuesday",_("Tuesday")),
-	("Monday",_("Monday")),
-	("Sunday",_("Sunday")),)
+# class Dateinput(forms.DateInput):
+#     input_type='date'
+#     # input_formats='%Y-%m-%d'
+#     # format_key='%Y-%m-%d'
     
 
 class DeliverySignup(DynamicFormMixin,forms.Form):
@@ -38,12 +32,14 @@ class DeliverySignup(DynamicFormMixin,forms.Form):
     prenom=forms.CharField()
     avatar=forms.ImageField()
     plate_number=forms.IntegerField()
+    # date_naissance=forms.DateField(widget=Dateinput)
+    # adresse_exacte=forms.CharField()
     mobile=forms.CharField()
     email=forms.EmailField()
     moyen_de_livraison=forms.ModelChoiceField(queryset=models.Delivery_mean.objects.all())
     heur_debut_desponible=forms.ModelChoiceField(queryset=Hour.objects.all())
     heur_fin_desponible=forms.ModelChoiceField(queryset=Hour.objects.all())
-    jour_desponibilite=forms.ChoiceField(choices=days)
+    jour_desponibilite=forms.ModelChoiceField(queryset=Day.objects.all())
     
   
     

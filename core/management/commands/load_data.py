@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
 from core.models import Wilaya,Commune
+
 class Command(BaseCommand):
     help = 'Load wilaya and commune'
 

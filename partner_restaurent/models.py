@@ -10,6 +10,18 @@ from core.models import Address
 from django.utils.translation import gettext_lazy as _
 
 
+class Type_cuisine(models.Model):
+    name = models.CharField(max_length=100,)
+
+    def __str__(self):
+        return self.name
+
+
+class Type_Resturent(models.Model):
+	name = models.CharField(max_length=100)
+
+	def __str__(self):
+		return self.name
 class Restaurent_owner(models.Model):
 	nom=models.CharField(max_length=100,blank=True,null=True)
 	prenom=models.CharField(max_length=100,blank=True,null=True)
@@ -29,9 +41,11 @@ class Restaurent(models.Model):
 	user=models.ForeignKey(User, on_delete=models.CASCADE,null=True,related_name='restaurent')
 	logo=models.ImageField(upload_to='restaurent_logo',null=True, blank=True)
 	restaurent_owner=models.ForeignKey(Restaurent_owner,on_delete=models.CASCADE,blank=True,null=True)
+	# address_exacte= models.CharField(max_length=200, null=False)
 	name=models.CharField(max_length=30,null=True)
 	mobile=models.CharField(max_length=200, null=False)
 	email=models.EmailField()
+	# type_restaurent=models.CharField(max_length=200,blank=True,null=True)
 	heur_debut_desponible=models.TimeField(blank=True,null=True)
 	heur_fin_desponible=models.TimeField(blank=True,null=True)
 	jour_desponibilite=models.CharField(choices=days ,max_length=100,blank=True,null=True)
@@ -39,6 +53,7 @@ class Restaurent(models.Model):
 	commune=models.CharField(max_length=100,blank=True,null=True)
 	lat=models.CharField(null=True,blank=True,max_length=120)
 	long=models.CharField(null=True,blank=True,max_length=120)
+	# menu=models.ForeignKey(MenuItem,on_delete=models.CASCADE,null=True)
 
 	def get_absolute_url(self):
 		return reverse('restaurent:detail',kwargs={"pk":self.pk})
