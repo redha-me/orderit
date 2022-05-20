@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-17 19:19+0000\n"
+"POT-Creation-Date: 2022-05-19 11:06+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,15 +23,55 @@ msgstr ""
 msgid "your cart is empty"
 msgstr "سلتك فارغة"
 
+#: delivery_man/forms.py:9 delivery_man/models.py:9
+#: partner_restaurent/forms.py:10 partner_restaurent/models.py:31
+msgid "Everyday"
+msgstr "كل يوم"
+
+#: delivery_man/forms.py:10 delivery_man/models.py:10
+#: partner_restaurent/forms.py:11 partner_restaurent/models.py:32
+msgid "Saturday"
+msgstr "السبت"
+
+#: delivery_man/forms.py:11 delivery_man/models.py:11
+#: partner_restaurent/forms.py:12 partner_restaurent/models.py:33
+msgid "Friday"
+msgstr "جمعة"
+
+#: delivery_man/forms.py:12 delivery_man/models.py:12
+#: partner_restaurent/forms.py:13 partner_restaurent/models.py:34
+msgid "Thursday"
+msgstr " الخميس"
+
+#: delivery_man/forms.py:13 delivery_man/models.py:13
+#: partner_restaurent/forms.py:14 partner_restaurent/models.py:35
+msgid "Wednesday"
+msgstr "الأربعاء"
+
+#: delivery_man/forms.py:14 delivery_man/models.py:14
+#: partner_restaurent/forms.py:15 partner_restaurent/models.py:36
+msgid "Tuesday"
+msgstr " الثلاثاء"
+
+#: delivery_man/forms.py:15 delivery_man/models.py:15
+#: partner_restaurent/forms.py:16 partner_restaurent/models.py:37
+msgid "Monday"
+msgstr "الاثنين"
+
+#: delivery_man/forms.py:16 delivery_man/models.py:16
+#: partner_restaurent/forms.py:17 partner_restaurent/models.py:38
+msgid "Sunday"
+msgstr "الأحد"
+
 #: delivery_man/views.py:76 delivery_man/views.py:88 delivery_man/views.py:131
 #: delivery_man/views.py:227 delivery_man/views.py:244
 #: partner_restaurent/views.py:30 partner_restaurent/views.py:50
-#: partner_restaurent/views.py:69 partner_restaurent/views.py:149
-#: partner_restaurent/views.py:228 users/views.py:262
+#: partner_restaurent/views.py:69 partner_restaurent/views.py:153
+#: partner_restaurent/views.py:232 users/views.py:263
 msgid "can't go there"
 msgstr "لا يمكنك الدخول"
 
-#: delivery_man/views.py:97 partner_restaurent/views.py:196 users/views.py:98
+#: delivery_man/views.py:97 partner_restaurent/views.py:200 users/views.py:98
 #: users/views.py:108
 msgid "successfully updated"
 msgstr "تم التحديث بنجاح"
@@ -44,7 +84,7 @@ msgstr "لا يوجد طلب جاهز حتى الآن"
 msgid "your outstanding order is not delivered yet"
 msgstr "لم يتم تسليم طلبك المعلق بعد"
 
-#: delivery_man/views.py:180 users/views.py:163
+#: delivery_man/views.py:180 users/views.py:164
 msgid "can't do that"
 msgstr "لا تستطيع فعل ذلك"
 
@@ -60,41 +100,9 @@ msgstr "تم اختيار هذا الطلب من قبل سائق آخر"
 msgid "there  is no  avaliable deliverys"
 msgstr "لا يوجد توصيلات متاحة"
 
-#: delivery_man/views.py:241 users/views.py:194
+#: delivery_man/views.py:241 users/views.py:195
 msgid "success"
 msgstr "بنجاح"
-
-#: partner_restaurent/models.py:31
-msgid "Everyday"
-msgstr "كل يوم"
-
-#: partner_restaurent/models.py:32
-msgid "Saturday"
-msgstr "السبت"
-
-#: partner_restaurent/models.py:33
-msgid "Friday"
-msgstr "جمعة"
-
-#: partner_restaurent/models.py:34
-msgid "Thursday"
-msgstr " الخميس"
-
-#: partner_restaurent/models.py:35
-msgid "Wednesday"
-msgstr "الأربعاء"
-
-#: partner_restaurent/models.py:36
-msgid "Tuesday"
-msgstr " الثلاثاء"
-
-#: partner_restaurent/models.py:37
-msgid "Monday"
-msgstr "الاثنين"
-
-#: partner_restaurent/models.py:38
-msgid "Sunday"
-msgstr "الأحد"
 
 #: partner_restaurent/models.py:98
 msgid "Cooking"
@@ -266,12 +274,12 @@ msgid "complet order"
 msgstr "اكمل الطلب"
 
 #: templates/delivery_man/sidebar.html:16
-#: templates/partiels/main_sidebar.html:89 templates/restaurent/sidebar.html:37
+#: templates/partiels/main_sidebar.html:90 templates/restaurent/sidebar.html:37
 msgid "Account"
 msgstr "الحساب"
 
 #: templates/delivery_man/sidebar.html:27
-#: templates/partiels/main_sidebar.html:82 templates/restaurent/signup.html:122
+#: templates/partiels/main_sidebar.html:83 templates/restaurent/signup.html:122
 #: templates/users/deliverys.html:4
 msgid "Deliverys"
 msgstr "التوصيلات"
@@ -343,31 +351,31 @@ msgstr " الترخيص"
 msgid "Home"
 msgstr "الصفحة الرئيسية"
 
-#: templates/partiels/main_sidebar.html:32
+#: templates/partiels/main_sidebar.html:33
 msgid "restaurent dashbord"
 msgstr " صفحة المطعم"
 
-#: templates/partiels/main_sidebar.html:45
+#: templates/partiels/main_sidebar.html:46
 msgid "Become partner restaurant"
 msgstr "اشترك كصاحب مطعم"
 
-#: templates/partiels/main_sidebar.html:57
+#: templates/partiels/main_sidebar.html:58
 msgid "Delivery man dashbord"
 msgstr "صفحة  عامل التوصيل"
 
-#: templates/partiels/main_sidebar.html:68
+#: templates/partiels/main_sidebar.html:69
 msgid "Become Delivery man"
 msgstr "اشترك كعامل التوصيل"
 
-#: templates/partiels/main_sidebar.html:97
+#: templates/partiels/main_sidebar.html:98
 msgid "Log out"
 msgstr "تسجيل الخروج"
 
-#: templates/partiels/main_sidebar.html:107 templates/users/signup.html:39
+#: templates/partiels/main_sidebar.html:108 templates/users/signup.html:39
 msgid "SignUp"
 msgstr "اشتراك"
 
-#: templates/partiels/main_sidebar.html:113
+#: templates/partiels/main_sidebar.html:114
 msgid "Login"
 msgstr "تسجيل الدخول"
 
@@ -645,10 +653,10 @@ msgstr ""
 msgid "activate location"
 msgstr ""
 
-#: users/views.py:168
+#: users/views.py:169
 msgid "the meal must be only in one restaurent"
 msgstr ""
 
-#: users/views.py:211
+#: users/views.py:212
 msgid "there is no deliverys"
 msgstr ""
