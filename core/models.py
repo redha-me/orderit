@@ -2,12 +2,6 @@ import geocoder
 from django.db import models
 
 
-
-class Day(models.Model):
-	day=models.CharField(max_length=20,blank=False)
-
-	def __str__(self):
-		return self.day
 		
 class Hour(models.Model):
 	hour=models.CharField(max_length=6,blank=False)
